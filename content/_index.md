@@ -8,21 +8,21 @@ chapter: false
     
 # Internship Report
 ### Student Information:
-&emsp; **Full Name:** Lê
+&emsp; **Full Name:** Le Tran Anh Khiem
 
-&emsp; **Phone Number:** 0989888999 
+&emsp; **Phone Number:** 0839286855
 
-&emsp; **Email:** Anguyenvan@gmail.com
+&emsp; **Email:** khiem120805@gmail.com
 
-&emsp; **University:** Ho Chi Minh City University of Technology and Education
+&emsp; **University:** FPT University
 
-&emsp; **Major:** Information Technology
+&emsp; **Major:** Information Security
 
 &emsp; **Internship Company:** Amazon Web Services Vietnam Co., Ltd.
 
 &emsp; **Internship Position:** FCJ Cloud Intern
 
-&emsp; **Internship Duration:** From 12/08/2025 to 12/11/2025
+&emsp; **Internship Duration:** From 09/08/2025 to 12/09/2025
 
 ![Your profile picture](/images/avatar.png)
 
