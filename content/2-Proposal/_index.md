@@ -1,6 +1,6 @@
 ---
 title: "Proposal"
-date: 2025-12-09
+date: "2025-10-10"
 weight: 2
 chapter: false
 pre: " <b> 2. </b> "
@@ -8,163 +8,149 @@ pre: " <b> 2. </b> "
 
 In this section, you need to summarize the contents of the workshop that you **plan** to conduct.
 
-# Travel Journal Platform
-## AWS Serverless Solution for Travel Memory Management and Sharing
+{{% notice info %}}
+📄 **Download Full Proposal:** [Proposal Template.docx](/documents/Proposal%20Template.docx)
+{{% /notice %}}
+
+# Travel Journal
+## A Unified AWS Serverless Solution for Travel Journal
+
 
 ### 1. Executive Summary
-The Travel Journal platform is developed by FPT University students to enable users to store, manage, and share photos, travel information, and locations they have visited. The platform creates a community for sharing travel experiences while providing a visual interface that allows users to review their journeys through timelines and interactive maps. Built on AWS Serverless architecture, the platform offers high scalability, strong security, and optimized cost efficiency with an estimated monthly cost under USD 70.
+Travel Journal Web was created to help people preserve their life journeys — not only the trips they take but also the memories, emotions, and stories behind each photo. The application connects people to their experiences, turning every journey into part of their own “memory map.”
+
+Users can upload photos, add location notes, and the system automatically recognizes the scene type (beach, mountain, city, etc.) using Amazon Rekognition. Travel routes are displayed visually and in real-time on an interactive map powered by Amazon Location Service, delivering a vivid and engaging experience.
+
+The platform leverages the power of AWS Serverless Architecture — including Lambda, API Gateway, S3, DynamoDB, and Cognito — ensuring high performance, strong security, and scalable flexibility at an optimized cost.
 
 ### 2. Problem Statement
-#### What's the Problem?
-Travelers lack a centralized platform to organize and preserve their travel memories. Photos are scattered across devices, location information is lost over time, and there's no easy way to visualize travel routes or shay.
+### What’s the Problem?
+Many travel enthusiasts want to document their journeys, yet existing platforms only allow posting scattered images or notes without an intuitive connection between emotions, photos, and actual locations. It becomes difficult to organize memories, view trips on a map, or analyze travel data such as destinations, durations, and experiences. Moreover, popular cloud storage solutions fail to personalize the user experience.
 
-#### The Solution
-The Travel Journal platform leverages AWS Serverless services to provide a comprehensive solution. Users can upload travel photos to Amazon S3, with Amazon Rekognition automatically identifying scenes in images. Travel metadata and notes are stored in Amazon DynamoDB, while Amazon Location Service visualizes travel routes on interactive maps. The platform uses AWS Lambda and API Gateway for backend processing, with an asynchronous processing pipeline via Amazon SQS for image analysis. Amazon Cognito provides secure authentication with optional MFA, and the React-based frontend is delivered globally through Amazon Clo
+### The Solution
+Travel Journal Web is built as a web application leveraging the AWS Serverless architecture to optimize performance and cost efficiency.
 
-#### Benefits and Return on Investmen
-The platform provides students with hands-on experience building production-grade serverless applications following AWS Well-Architected Framework principles. It creates a reusable architecture pattern for similar applications and demonstrates cost-effective cloud solutions. With estimated monthly costs under USD 70 and a fully automated CI/CD pipeline, the platform showcases modern DevOps practices while delivering real value to users who want to preserve and share their travel memories.
+The system uses Amazon S3 to store images and static data, distributed globally through Amazon CloudFront. Amazon Cognito manages secure user authentication, while API Gateway and AWS Lambda handle backend logic. Uploaded images in S3 are analyzed by Amazon Rekognition, with results and location data stored in Amazon DynamoDB and visualized using Amazon Location Service.
+
+The entire system is monitored by Amazon CloudWatch, tracking throughput, errors, latency, and database capacity; alerts are sent via SNS. Data and encryption keys are securely managed using AWS KMS and Secrets Manager.
+
+This solution delivers a smart, secure, and cost-effective travel application, allowing users to easily capture, store, and revisit their journeys anytime, anywhere..
+
+### Benefits and Return on Investment
+The solution allows users to easily record and share their journeys while establishing a data foundation for potential expansion into a social travel platform. With an estimated cost of only USD 14.55/month, the app can support 100–200 users without physical servers. The expected ROI period is 6–8 months, achieved by saving maintenance and storage costs.
 
 ### 3. Solution Architecture
-Travel Journal is built using a fully serverless architecture on AWS, optimized for scalability, cost efficiency, and simplified operations. Static frontend content is hosted on Amazon S3 and delivered globally through Amazon CloudFront, with AWS WAF and ACM providing TLS security and protection against common web threats.
+The Travel Journal Web is built entirely on an AWS Serverless architecture, optimizing performance, security, and scalability. The static web interface is hosted on Amazon S3, distributed globally through Amazon CloudFront, and protected by AWS WAF, ACM, and Route 53. User authentication is managed by Amazon Cognito, while Amazon API Gateway and AWS Lambda handle backend business logic. Uploaded images are stored in Amazon S3 and automatically processed through Amazon SQS, AWS Lambda, Amazon Rekognition, and Amazon Location Service. The results are stored in Amazon DynamoDB and redistributed via S3. The system supports retry and DLQ mechanisms, sends notifications through Amazon SNS, provides centralized monitoring with Amazon CloudWatch and AWS X-Ray, and secures data using AWS IAM, KMS, and Secrets Manager.. The architecture is detailed below:
 
-Users interact with the platform via a React-based web application to upload images, add travel notes, tag locations, and view interactive maps. All backend interactions are processed through Amazon API Gateway, which routes authenticated requests (via Amazon Cognito) to AWS Lambda functions. Uploaded images are stored in Amazon S3, where upload events trigger Amazon SQS to orchestrate asynchronous processing. Lambda workers consume these messages, analyze images through Amazon Rekognition, and store results in Amazon DynamoDB.
+![Travel journal Architecture](/images/2-Proposal/proposal.jpg)
+
 
 ### AWS Services Used
-- **Amazon S3**: Stores uploaded images and hosts static frontend content
-- **Amazon CloudFront**: Global content delivery with low latency
-- **AWS WAF & ACM**: Web application firewall and TLS certificate management
-- **Amazon Cognito**: User authentication with optional MFA
-- **Amazon API Gateway**: RESTful API endpoint management
-- **AWS Lambda**: Serverless compute for business logic
-- **Amazon SQS**: Message queue for asynchronous image processing
-- **Amazon DynamoDB**: NoSQL database for metadata and user data
-- **Amazon Rekognition**: AI-powered image scene detection
-- **Amazon Location Service**: Interactive map visualization and geolocation
-- **Amazon CloudWatch**: Monitoring, logging, and alerting
-- **Amazon SNS**: System notifications and alerts
-- **AWS KMS**: Encryption key management
-- **AWS CodePipeline & CodeBuild**: CI/CD automation
+- **Amazon Route 53**: Global domain management and routing.
+- **AWS Certificate Manager** (ACM): Issues and manages SSL/TLS certificates for secure endpoints
+- **Amazon CloudFront**: Low-latency content delivery for static and dynamic assets.
+- **AWS WAF**: Protects the application from common web threats.
+- **AWS Lambda**: Event-driven serverless compute for backend logic.
+- **Amazon API Gateway**: Acts as the interface between the frontend and Lambda backend.
+- **Amazon S3**: Stores user data, images, and activity logs
+- **Amazon DynamoDB**: NoSQL database for trip records and user data, optimized for fast queries.
+- **Amazon Cognito**: User authentication and authorization management.
+- **Amazon Rekognition**: Image analysis and labeling.
+- **Amazon Location Service**: Geolocation and map visualization.
+- **Amazon SNS**: Sends notifications to users and administrators.
+- **Amazon SQS (Main Queue)**: Buffers image processing requests from S3 uploads before invoking Lambda.
+- **Dead Letter Queue (DLQ)**: Captures failed or unprocessed messages from SQS for later review and troubleshooting.
+- **Amazon CloudWatch**: Logs, metrics, and performance monitoring.
+- **AWS IAM**: Manages access roles and permissions for AWS services.
+- **AWS KMS**: Encrypts data at rest and in transit, enhancing overall security.
+- **AWS Secrets Manager**: Securely stores and encrypts confidential credentials.
+- **AWS CodeBuild**: Automatically compiles, tests, and packages source code.
+- **AWS CodePipeline**: Automates the entire CI/CD process — from commit, build, and test to deployment in AWS environments.
 
 ### Component Design
-- **Frontend**: React application hosted on S3, delivered via CloudFront
-- **Authentication**: Amazon Cognito manages user registration, login, and MFA
-- **API Layer**: API Gateway routes requests to Lambda functions
-- **Image Storage**: S3 stores uploaded photos with encryption at rest
-- **Asynchronous Processing**: SQS queues trigger Lambda workers for Rekognition analysis
-- **Data Storage**: DynamoDB stores travel metadata, notes, and location tags
-- **Map Visualization**: Amazon Location Service displays travel routes and tagged locations
-- **Monitoring**: CloudWatch tracks performance metrics and triggers SNS alerts
+- **User Authentication**: Managed by Amazon Cognito for login, token management, and access control.
+- **Application Logic**: AWS Lambda handles travel data submissions, image uploads, and analytics requests from API Gateway.
+- **Data Management**: Amazon DynamoDB stores journey details; OpenSearch provides fast indexing and search.
+- **Queue Processing**: Amazon SQS (Main Queue) receives image processing requests from S3 before invoking Lambda; the Dead Letter Queue (DLQ) captures failed messages for later handling.
+- **Image Analysis**: Amazon Rekognition automatically labels and classifies photo content.
+- **Maps & Location Data**: Amazon Location Service tracks and displays GPS data on interactive maps.
+- **Content Storage & Delivery**: Amazon S3 stores images, user data, and static assets; content is distributed globally via Amazon CloudFront (protected by AWS WAF, SSL/TLS via ACM, and routed through Route 53).
+- **Monitoring & Notifications**: Amazon CloudWatch monitors logs and performance metrics; Amazon SNS sends alerts and notifications to users.
+- **Security & Access Management**: AWS IAM manages service permissions, while AWS Secrets Manager and KMS protect sensitive information.
+- **Deployment & CI/CD**: AWS CodeBuild and CodePipeline automate the build, test, and deployment processes.
 
 ### 4. Technical Implementation
 **Implementation Phases**
-The project follows an Agile Scrum framework over 8 two-week sprints (12 weeks total):
-
-- **Assessment (Week 1-4)**: Team onboarding, AWS service training (S3, Lambda, API Gateway, DynamoDB, Cognito, SQS, CloudFront, Rekognition, CloudWatch), Git/GitHub workflow, and requirements discovery
-- **Architecture Design & Planning (Week 5)**: Use case analysis, architecture design iterations following AWS Well-Architected Framework, MVP scope definition, and sprint planning
-- **Base Infrastructure Setup (Week 6)**: Configure IAM, MFA, CloudTrail, AWS Config, create core services (S3, DynamoDB, API Gateway, Cognito, SQS), set up CloudFront + ACM + WAF, build CI/CD pipeline, and write Infrastructure as Code using CloudFormation
-- **Backend Development (Week 7-8)**: Develop Lambda + API Gateway for image upload and trip management, implement S3 → SQS → Lambda processing pipeline, integrate Rekognition, optimize performance and costs
-- **Frontend Development (Week 8-9)**: Build React UI for image upload, timeline, and trip pages, integrate Cognito authentication, implement interactive maps using Amazon Location Service, deploy to S3 + CloudFront
-- **Testing & Go-live (Week 10-11)**: Functional and integration testing, configure CloudWatch monitoring and alarms, conduct load testing, bug fixing and MVP stabilization
-- **Handover (Week 12)**: Prepare documentation, knowledge transfer sessions, final demo and project handover
+The project is divided into two main areas — web application development and AWS infrastructure integration — across three stages:
+- Requirement Analysis & Architecture Design: Identify suitable AWS services (CloudFront, WAF, Cognito, DynamoDB, Lambda, API Gateway, S3, etc.) and design the overall architecture (Month 1).
+- Cost Estimation & System Simulation: Calculate costs using AWS Pricing Calculator, test image and location processing workflows, and optimize system resources (Month 2).
+- Development, Testing & Deployment: Build the web application, integrate AWS SDKs, test WAF protection, and monitor operations using CloudWatch (Month 3).
 
 **Technical Requirements**
-- **Frontend**: React, MapLibre/Leaflet for maps, AWS Location Maps SDK
-- **Backend**: Node.js Lambda functions, API Gateway REST APIs
-- **Infrastructure**: AWS CDK or CloudFormation for IaC
-- **CI/CD**: GitHub as source repository, CodePipeline and CodeBuild for automation
-- **Security**: IAM least-privilege policies, KMS encryption, Cognito with MFA, WAF rules
-- **Monitoring**: CloudWatch Logs, Metrics, Alarms, X-Ray for distributed tracing
+- Frontend: Built with React.js, deployed as static files on Amazon S3, and globally distributed via CloudFront for fast load times and reduced backend load.
+- Security & Access: AWS WAF protects against common web attacks; AWS Certificate Manager (ACM) provides SSL/TLS certificates; Amazon Cognito manages user authentication (email, OAuth2).
+- Backend: API Gateway routes user requests to AWS Lambda, which executes business logic such as trip logging, image uploads, and data queries.
+- Queue Processing: Amazon SQS (Main Queue) buffers image processing requests triggered from S3, while the Dead Letter Queue (DLQ) stores failed messages for later handling.
+- Database & Search: Amazon DynamoDB stores user journeys and notes
+- Image Analysis: Amazon Rekognition detects scenes, faces, and automatically suggests image labels.
+- Geolocation & Maps: Amazon Location Service visualizes GPS coordinates on an interactive map.
+- Monitoring & Security: Amazon CloudWatch collects logs; AWS Secrets Manager and KMS secure sensitive information
+- Notifications: Amazon SNS sends alerts for system errors or new user events.
+- Deployment & CI/CD: AWS CodeBuild and AWS CodePipeline automate the build, test, and deployment workflow.
 
 ### 5. Timeline & Milestones
-**Project Timeline (12 Weeks)**
-
-| Phase | Timeline | Key Milestones |
-|-------|----------|----------------|
-| Assessment | Week 1-4 | Team readiness report, AWS knowledge summary, requirements document |
-| Architecture Design | Week 5 | Final architecture diagram, solution design document, sprint plan |
-| Base Infrastructure | Week 6 | AWS environment ready, CI/CD pipeline operational, IaC templates complete |
-| Backend Development | Week 7-8 | Backend API v1, Rekognition pipeline operational, DynamoDB structured |
-| Frontend Development | Week 8-9 | React frontend v1, map and upload features functional, CloudFront deployment |
-| Testing & Go-live | Week 10-11 | Test report, MVP stable, monitoring and alerting configured |
-| Handover | Week 12 | Complete documentation, knowledge transfer sessions, final demo |
-
+**Project Timeline**
+- Internship (Months 1-3): 3 months.
+    - Month 1: Learn AWS fundamentals.
+    - Month 2: Design architecture, estimate costs, and refine infrastructure.
+    - Month 3: Implement, test, and deploy the application.
+- Post-Launch:Continue system research and improvements over the following year.
 ### 6. Budget Estimation
-**Infrastructure Costs (Estimated Monthly)**
+You can find the budget estimation on the [AWS Pricing Calculator](https://calculator.aws/#/estimate?id=e732e6253c20390cbb8d794f05b4a951dec9d574) 
 
-Based on moderate usage assumptions:
-- 5,000-10,000 image uploads per month
-- Average image size: 2-4 MB
-- Single AWS Region deployment
-- CloudFront: 50-100 GB/month outbound traffic
-- DynamoDB: On-Demand capacity mode
-- CloudWatch Logs: 30-day retention
-
-**Estimated Monthly Cost: Under USD 70**
-
-Key cost drivers:
-- **Amazon S3**: Storage and requests for images and static content
-- **Amazon Rekognition**: Per-image analysis charges
-- **Amazon CloudFront**: Global content delivery
-- **AWS Lambda**: Compute time for processing
-- **Amazon DynamoDB**: On-demand read/write capacity
-- **Amazon Location Service**: Map rendering and geocoding
-- **Other Services**: API Gateway, SQS, CloudWatch, SNS (minimal costs)
-
-**Development Costs**
-
-| Resource | Rate (USD/hour) | Total Hours | Total Cost |
-|----------|----------------|-------------|------------|
-| Solutions Architect (1) | $20 | 44 | $880 |
-| Engineers - FE/BE/DevOps (4) | $12 | 228 | $2,736 |
-| QA Engineer | $8 | 16 | $128 |
-| **Total** | | **288** | **$3,744** |
+### Infrastructure Costs
+- AWS Services:
+    - Amazon Route 53: 0,50 USD/month
+    - AWS Certificate Manager: 0,0 USD/month
+    - Amazon CloudFront: 0,61 USD/month
+    - AWS WAF: 0,6 USD/month
+    - AWS Lambda: 0,01 USD/month
+    - Amazon API Gateway: 0,45 USD/month
+    - Amazon S3: 1,47 USD/month
+    - Amazon DynamoDB: 16,35 USD/month
+    - Amazon Cognito: 5,00 USD/month
+    - Amazon Rekognition: 10,08 USD/month
+    - Amazon Location Service: 4,35 USD/month
+    - Amazon SNS: 2,58 USD/month
+    - Amazon SQS (Main Queue): 3,1 USD/month
+    - Amazon CloudWatch: 6,87 USD/month
+    - AWS IAM: 0,00 USD/month
+    - AWS Secrets Manager: 0,4 USD/month
+    - AWS KMS: 2,3 USD/month
+    - AWS CodeBuild: 0,8 USD/month
+    - AWS CodePipeline: 0,00 USD/month
+  
+*Total*: 61.78 USD/month, or $946,56 USD/year
 
 ### 7. Risk Assessment
-#### Key Risks and Mitigation
+#### Risk Matrix
+- Security breach or user access loss: High impact, very low probability.
+- Cost increase due to Rekognition usage: High impact, medium probability.
+- GPS data inconsistency: High impact, low probability
 
-**Cost Overruns**
-- **Risk**: Rekognition costs may exceed projections if image uploads spike
-- **Mitigation**: Implement AWS Budget alerts, optimize image sizes before processing, set CloudWatch alarms for cost thresholds
-- **Impact**: Medium | **Probability**: Low
-
-**Security Vulnerabilities**
-- **Risk**: Misconfigured IAM policies or exposed S3 buckets
-- **Mitigation**: Apply least-privilege IAM policies, enable AWS Config for compliance monitoring, regular security audits
-- **Impact**: High | **Probability**: Low
-
-**Performance Issues**
-- **Risk**: Slow image uploads or map rendering due to network latency
-- **Mitigation**: Use CloudFront for global delivery, optimize image compression, implement progressive loading
-- **Impact**: Medium | **Probability**: Medium
-
-**Rekognition Accuracy**
-- **Risk**: Inaccurate scene detection results affecting user experience
-- **Mitigation**: Set confidence thresholds, allow manual corrections, provide user feedback mechanisms
-- **Impact**: Low | **Probability**: Medium
+#### Mitigation Strategies
+- Network: Use CloudFront for global caching and stable performance across regions.
+- Infrastructure: Leverage Lambda’s automatic retry mechanism and browser caching to minimize downtime.
+- Security: Apply multi-layer authentication via Cognito and strict IAM/S3 permissions.
+- Cost: Set budget alerts in AWS Budgets, and optimize Lambda/S3 usage based on access patterns.
 
 #### Contingency Plans
-- CloudFormation templates enable quick rollback of infrastructure changes
-- Dead Letter Queue (DLQ) preserves failed messages for investigation
-- CloudWatch alarms trigger SNS notifications for immediate incident response
+- Integrate SNS and CloudWatch Alerts to notify admins immediately of failures (e.g., Lambda errors, API overloads, budget overruns).
+- Use CloudFormation for rapid infrastructure recovery
+- Enable S3 Versioning to preserve image and log backups.
 
 ### 8. Expected Outcomes
-
-#### Project Success Criteria
-- **Uptime**: 99% platform availability through serverless architecture
-- **Security**: Secure authentication via Cognito with optional MFA, encryption at rest and in transit
-- **Cost**: Monthly infrastructure costs under USD 70
-- **Automation**: 100% CI/CD automation for build, test, and deployment
-- **Monitoring**: CloudWatch alerts within 1 minute of errors or threshold breaches
-- **Accuracy**: 95%+ accuracy in displaying user-tagged locations on maps
-
-#### Technical Improvements
-- Hands-on experience with production-grade AWS serverless architecture
-- Understanding of AWS Well-Architected Framework principles
-- Practical knowledge of CI/CD automation and DevOps practices
-- Experience with modern frontend (React) and backend (Lambda) development
-
+#### Technical Improvements: 
+The app automates storage, analysis, and visualization of travel data on a map, eliminating manual note-taking.
 #### Long-term Value
-- Reusable architecture pattern for similar serverless applications
-- Comprehensive documentation and operational runbooks
-- Foundation for future enhancements (mobile apps, social features, AI recommendations)
-- Portfolio project demonstrating cloud-native development skills
+Builds a rich dataset of travel routes, photos, and emotions — forming a foundation for future applications like personalized travel recommendations and experience analytics.

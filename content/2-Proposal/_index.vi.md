@@ -1,6 +1,6 @@
 ---
 title: "Bản đề xuất"
-date: 2025-12-09
+date: "2025-10-10"
 weight: 2
 chapter: false
 pre: " <b> 2. </b> "
@@ -8,163 +8,149 @@ pre: " <b> 2. </b> "
 
 Tại phần này, bạn cần tóm tắt các nội dung trong workshop mà bạn **dự tính** sẽ làm.
 
-# Travel Journal Platform
-## Giải pháp AWS Serverless cho quản lý và chia sẻ kỷ niệm du lịch
+{{% notice info %}}
+📄 **Tải xuống Bản đề xuất đầy đủ:** [Proposal Template.docx](/documents/Proposal%20Template.docx)
+{{% /notice %}}
 
-### 1. Tóm tắt điều hành
-Nền tảng Travel Journal được phát triển bởi sinh viên Đại học FPT nhằm cho phép người dùng lưu trữ, quản lý và chia sẻ ảnh, thông tin du lịch và các địa điểm họ đã ghé thăm. Nền tảng tạo ra một cộng đồng chia sẻ trải nghiệm du lịch đồng thời cung cấp giao diện trực quan cho phép người dùng xem lại hành trình của mình thông qua dòng thời gian và bản đồ tương tác. Được xây dựng trên kiến trúc AWS Serverless, nền tảng mang lại khả năng mở rộng cao, bảo mật mạnh mẽ và tối ưu hóa chi phí với ước tính chi phí hàng tháng dưới 70 USD.
+# Travel Journal
+## Giải pháp AWS Serverless cho nhật ký du lịch
 
-### 2. Tuyên bố vấn đề
-#### Vấn đề hiện tại
-Du khách thiếu một nền tảng tập trung để tổ chức và lưu giữ kỷ niệm du lịch của họ. Ảnh bị phân tán trên nhiều thiết bị, thông tin vị trí bị mất theo thời gian và không có cách dễ dàng để trực quan hóa lộ trình du lịch hoặc chia sẻ trải nghiệm với cộng đồng.
+### 1. Tóm tắt điều hành  
+Travel Journal Web ra đời với mong muốn giúp mỗi người lưu giữ hành trình của cuộc đời — không chỉ là những chuyến đi, mà còn là ký ức, cảm xúc và câu chuyện đằng sau từng bức ảnh. Ứng dụng kết nối con người với trải nghiệm, biến mỗi chuyến đi thành một phần trong “bản đồ ký ức” của riêng họ.
 
-#### Giải pháp
-Nền tảng Travel Journal tận dụng các dịch vụ AWS Serverless để cung cấp giải pháp toàn diện. Người dùng có thể tải ảnh du lịch lên Amazon S3, với Amazon Rekognition tự động nhận diện cảnh trong ảnh. Siêu dữ liệu và ghi chú du lịch được lưu trữ trong Amazon DynamoDB, trong khi Amazon Location Service trực quan hóa lộ trình du lịch trên bản đồ tương tác. Nền tảng sử dụng AWS Lambda và API Gateway để xử lý backend, với pipeline xử lý bất đồng bộ thông qua Amazon SQS để phân tích ảnh. Amazon Cognito cung cấp xác thực an toàn với MFA tùy chọn, và giao diện React được phân phối toàn cầu thông qua Amazon CloudFront với bảo vệ AWS WAF.
+Người dùng có thể tải lên hình ảnh, ghi chú địa điểm, và hệ thống tự động nhận diện loại cảnh (biển, núi, thành phố…) nhờ Amazon Rekognition. Dữ liệu hành trình được hiển thị trực quan trên bản đồ thời gian thực bằng Amazon Location Service, mang đến trải nghiệm sinh động và gắn kết.
 
-#### Lợi ích và hoàn vốn đầu tư
-Nền tảng cung cấp cho sinh viên kinh nghiệm thực tế trong việc xây dựng ứng dụng serverless cấp production theo các nguyên tắc AWS Well-Architected Framework. Nó tạo ra một mẫu kiến trúc có thể tái sử dụng cho các ứng dụng tương tự và thể hiện giải pháp đám mây hiệu quả về chi phí. Với chi phí hàng tháng ước tính dưới 70 USD và pipeline CI/CD hoàn toàn tự động, nền tảng thể hiện các thực hành DevOps hiện đại đồng thời mang lại giá trị thực cho người dùng muốn lưu giữ và chia sẻ kỷ niệm du lịch của họ.
+Nền tảng tận dụng sức mạnh của AWS Serverless Architecture (Lambda, API Gateway, S3, DynamoDB, Cognito), đảm bảo hiệu năng cao, bảo mật mạnh mẽ và khả năng mở rộng linh hoạt 
 
-### 3. Kiến trúc giải pháp
-Travel Journal được xây dựng sử dụng kiến trúc serverless hoàn toàn trên AWS, được tối ưu hóa cho khả năng mở rộng, hiệu quả chi phí và đơn giản hóa vận hành. Nội dung frontend tĩnh được lưu trữ trên Amazon S3 và phân phối toàn cầu thông qua Amazon CloudFront, với AWS WAF và ACM cung cấp bảo mật TLS và bảo vệ chống lại các mối đe dọa web phổ biến.
+### 2. Tuyên bố vấn đề  
+*Vấn đề hiện tại*  
+Nhiều người yêu du lịch muốn lưu giữ hành trình của mình, nhưng các nền tảng hiện nay chỉ cho phép đăng ảnh hoặc ghi chú rời rạc, thiếu sự kết nối trực quan giữa cảm xúc, hình ảnh và địa điểm thực tế. Việc sắp xếp kỷ niệm trở nên khó khăn, không thể xem lại hành trình trên bản đồ hay thống kê được số điểm đến, thời gian và trải nghiệm theo từng chuyến đi. Bên cạnh đó, các nền tảng lưu trữ đám mây phổ biến lại không cá nhân hóa trải nghiệm cho từng người dùng. 
 
-Người dùng tương tác với nền tảng thông qua ứng dụng web dựa trên React để tải ảnh, thêm ghi chú du lịch, gắn thẻ vị trí và xem bản đồ tương tác. Tất cả các tương tác backend được xử lý thông qua Amazon API Gateway, định tuyến các yêu cầu đã xác thực (qua Amazon Cognito) đến các hàm AWS Lambda. Ảnh được tải lên được lưu trữ trong Amazon S3, nơi các sự kiện tải lên kích hoạt Amazon SQS để điều phối xử lý bất đồng bộ. Lambda workers tiêu thụ các thông điệp này, phân tích ảnh thông qua Amazon Rekognition và lưu trữ kết quả trong Amazon DynamoDB.
+*Giải pháp*  
+Travel Journal Web được xây dựng dưới dạng ứng dụng web, tận dụng kiến trúc AWS Serverless để tối ưu hiệu năng và chi phí.
 
-### Dịch vụ AWS sử dụng
-- **Amazon S3**: Lưu trữ ảnh đã tải lên và nội dung frontend tĩnh
-- **Amazon CloudFront**: Phân phối nội dung toàn cầu với độ trễ thấp
-- **AWS WAF & ACM**: Tường lửa ứng dụng web và quản lý chứng chỉ TLS
-- **Amazon Cognito**: Xác thực người dùng với MFA tùy chọn
-- **Amazon API Gateway**: Quản lý endpoint API RESTful
-- **AWS Lambda**: Tính toán serverless cho logic nghiệp vụ
-- **Amazon SQS**: Hàng đợi tin nhắn cho xử lý ảnh bất đồng bộ
-- **Amazon DynamoDB**: Cơ sở dữ liệu NoSQL cho siêu dữ liệu và dữ liệu người dùng
-- **Amazon Rekognition**: Phát hiện cảnh ảnh được hỗ trợ bởi AI
-- **Amazon Location Service**: Trực quan hóa bản đồ tương tác và định vị địa lý
-- **Amazon CloudWatch**: Giám sát, ghi log và cảnh báo
-- **Amazon SNS**: Thông báo và cảnh báo hệ thống
-- **AWS KMS**: Quản lý khóa mã hóa
-- **AWS CodePipeline & CodeBuild**: Tự động hóa CI/CD
+Hệ thống sử dụng Amazon S3 lưu trữ hình ảnh và dữ liệu tĩnh, được phân phối toàn cầu qua Amazon CloudFront. Amazon Cognito quản lý đăng nhập an toàn, trong khi API Gateway và AWS Lambda xử lý logic phía máy chủ. Hình ảnh tải lên S3 được phân tích bởi Amazon Rekognition, lưu kết quả và vị trí vào Amazon DynamoDB, và hiển thị trực quan qua Amazon Location Service.
 
-### Thiết kế thành phần
-- **Frontend**: Ứng dụng React được lưu trữ trên S3, phân phối qua CloudFront
-- **Xác thực**: Amazon Cognito quản lý đăng ký, đăng nhập và MFA của người dùng
-- **Lớp API**: API Gateway định tuyến yêu cầu đến các hàm Lambda
-- **Lưu trữ ảnh**: S3 lưu trữ ảnh đã tải lên với mã hóa khi lưu trữ
-- **Xử lý bất đồng bộ**: Hàng đợi SQS kích hoạt Lambda workers để phân tích Rekognition
-- **Lưu trữ dữ liệu**: DynamoDB lưu trữ siêu dữ liệu du lịch, ghi chú và thẻ vị trí
-- **Trực quan hóa bản đồ**: Amazon Location Service hiển thị lộ trình du lịch và vị trí được gắn thẻ
-- **Giám sát**: CloudWatch theo dõi các chỉ số hiệu suất và kích hoạt cảnh báo SNS
+Toàn bộ hệ thống được giám sát bằng Amazon CloudWatch, theo dõi thông lượng, lỗi, độ trễ và dung lượng cơ sở dữ liệu; cảnh báo được gửi qua SNS. Các dữ liệu và khóa bảo mật được quản lý bởi AWS KMS và Secrets Manager.
 
-### 4. Triển khai kỹ thuật
-**Các giai đoạn triển khai**
-Dự án tuân theo framework Agile Scrum qua 8 sprint 2 tuần (tổng cộng 12 tuần):
+Giải pháp này mang đến một ứng dụng du lịch thông minh, bảo mật và tiết kiệm, giúp người dùng dễ dàng lưu giữ và xem lại hành trình của mình mọi lúc, mọi nơi.
 
-- **Đánh giá (Tuần 1-4)**: Onboarding nhóm, đào tạo dịch vụ AWS (S3, Lambda, API Gateway, DynamoDB, Cognito, SQS, CloudFront, Rekognition, CloudWatch), quy trình Git/GitHub và khám phá yêu cầu
-- **Thiết kế kiến trúc & Lập kế hoạch (Tuần 5)**: Phân tích use case, lặp lại thiết kế kiến trúc theo AWS Well-Architected Framework, định nghĩa phạm vi MVP và lập kế hoạch sprint
-- **Thiết lập hạ tầng cơ bản (Tuần 6)**: Cấu hình IAM, MFA, CloudTrail, AWS Config, tạo các dịch vụ cốt lõi (S3, DynamoDB, API Gateway, Cognito, SQS), thiết lập CloudFront + ACM + WAF, xây dựng pipeline CI/CD và viết Infrastructure as Code sử dụng CloudFormation
-- **Phát triển Backend (Tuần 7-8)**: Phát triển Lambda + API Gateway cho tải ảnh và quản lý chuyến đi, triển khai pipeline xử lý S3 → SQS → Lambda, tích hợp Rekognition, tối ưu hóa hiệu suất và chi phí
-- **Phát triển Frontend (Tuần 8-9)**: Xây dựng giao diện React cho tải ảnh, dòng thời gian và trang chuyến đi, tích hợp xác thực Cognito, triển khai bản đồ tương tác sử dụng Amazon Location Service, triển khai lên S3 + CloudFront
-- **Kiểm thử & Go-live (Tuần 10-11)**: Kiểm thử chức năng và tích hợp, cấu hình giám sát và cảnh báo CloudWatch, thực hiện kiểm thử tải, sửa lỗi và ổn định MVP
-- **Bàn giao (Tuần 12)**: Chuẩn bị tài liệu, phiên chuyển giao kiến thức, demo cuối cùng và bàn giao dự án
+*Lợi ích và hoàn vốn đầu tư (ROI)* 
+Giải pháp giúp người dùng dễ dàng lưu trữ và chia sẻ hành trình du lịch, đồng thời tạo nền tảng dữ liệu để mở rộng thành ứng dụng du lịch cộng đồng trong tương lai. Với chi phí chỉ khoảng 14.55 USD/tháng, ứng dụng có thể phục vụ 100–200 người dùng mà không cần máy chủ vật lý. Thời gian hoàn vốn ước tính 6–8 tháng, nhờ tiết kiệm chi phí vận hành, bảo trì và lưu trữ ảnh tập trung.  
 
-**Yêu cầu kỹ thuật**
-- **Frontend**: React, MapLibre/Leaflet cho bản đồ, AWS Location Maps SDK
-- **Backend**: Hàm Lambda Node.js, API Gateway REST APIs
-- **Hạ tầng**: AWS CDK hoặc CloudFormation cho IaC
-- **CI/CD**: GitHub làm kho mã nguồn, CodePipeline và CodeBuild cho tự động hóa
-- **Bảo mật**: Chính sách IAM least-privilege, mã hóa KMS, Cognito với MFA, quy tắc WAF
-- **Giám sát**: CloudWatch Logs, Metrics, Alarms, X-Ray cho truy vết phân tán
+### 3. Kiến trúc giải pháp  
+Hệ thống Travel Journal Web được xây dựng hoàn toàn trên kiến trúc AWS Serverless, tối ưu hiệu năng, bảo mật và khả năng mở rộng. Giao diện web tĩnh được lưu trữ trên Amazon S3, phân phối toàn cầu qua Amazon CloudFront và bảo vệ bởi AWS WAF, ACM và Route 53. Người dùng xác thực thông qua Amazon Cognito, trong khi Amazon API Gateway kết hợp AWS Lambda đảm nhiệm xử lý nghiệp vụ phía máy chủ. Ảnh người dùng tải lên được lưu tại Amazon S3 và xử lý tự động qua hàng đợi Amazon SQS, AWS Lambda, Amazon Rekognition và Amazon Location Service. Kết quả được lưu trữ trong Amazon DynamoDB và phân phối lại qua S3. Hệ thống hỗ trợ cơ chế retry, DLQ, gửi thông báo bằng Amazon SNS, giám sát tập trung bằng Amazon CloudWatch và AWS X-Ray, đồng thời bảo mật dữ liệu bằng AWS IAM, KMS và Secrets Manager.
 
-### 5. Lộ trình & Mốc triển khai
-**Lộ trình dự án (12 tuần)**
+![Travel journal Architecture](/images/2-Proposal/proposal.jpg)
 
-| Giai đoạn | Thời gian | Mốc chính |
-|-----------|-----------|-----------|
-| Đánh giá | Tuần 1-4 | Báo cáo sẵn sàng của nhóm, tóm tắt kiến thức AWS, tài liệu yêu cầu |
-| Thiết kế kiến trúc | Tuần 5 | Sơ đồ kiến trúc cuối cùng, tài liệu thiết kế giải pháp, kế hoạch sprint |
-| Hạ tầng cơ bản | Tuần 6 | Môi trường AWS sẵn sàng, pipeline CI/CD hoạt động, template IaC hoàn chỉnh |
-| Phát triển Backend | Tuần 7-8 | Backend API v1, pipeline Rekognition hoạt động, DynamoDB được cấu trúc |
-| Phát triển Frontend | Tuần 8-9 | React frontend v1, tính năng bản đồ và tải lên hoạt động, triển khai CloudFront |
-| Kiểm thử & Go-live | Tuần 10-11 | Báo cáo kiểm thử, MVP ổn định, giám sát và cảnh báo được cấu hình |
-| Bàn giao | Tuần 12 | Tài liệu hoàn chỉnh, phiên chuyển giao kiến thức, demo cuối cùng |
 
-### 6. Ước tính ngân sách
-**Chi phí hạ tầng (Ước tính hàng tháng)**
+*Dịch vụ AWS sử dụng*  
+- Amazon Route 53: Quản lý tên miền và định tuyến truy cập toàn cầu.
+- AWS Certificate Manager: Cấp phát và quản lý chứng chỉ SSL/TLS cho các endpoint bảo mật.
+- Amazon CloudFront: Phân phối nội dung tĩnh và động với độ trễ thấp.
+- AWS WAF: Bảo vệ ứng dụng khỏi các mối đe dọa web phổ biến.
+- AWS Lambda: Xử lý sự kiện và logic phía máy chủ mà không cần quản lý hạ tầng.
+- Amazon API Gateway: Trung gian giữa frontend và backend, tiếp nhận yêu cầu từ người dùng và chuyển đến AWS Lambda.
+- Amazon S3: Lưu trữ hình ảnh, dữ liệu người dùng, và nhật ký hoạt động.
+- Amazon DynamoDB: Lưu trữ dữ liệu phi quan hệ về hành trình, địa điểm và thông tin bài viết, tối ưu tốc độ truy cập.
+- Amazon Cognito: Quản lý xác thực và quyền truy cập người dùng.
+- Amazon Rekognition: Phân tích, nhận diện hình ảnh.
+- Amazon Location Service: Cung cấp dịch vụ định vị và bản đồ.
+- Amazon SNS: Gửi thông báo đến người dùng và quản trị viên.
+- Amazon SQS (Main Queue): Đệm các yêu cầu xử lý ảnh được gửi từ S3 trước khi kích hoạt Lambda.
+- Dead Letter Queue (DLQ): Lưu trữ các thông điệp lỗi hoặc sự kiện thất bại từ SQS để phục vụ xử lý và giám sát sau này.
+- Amazon CloudWatch: Giám sát hoạt động, log và hiệu năng dịch vụ.
+- AWS IAM: Quản lý quyền truy cập, cấp vai trò cho Lambda, API Gateway và dịch vụ AWS khác.
+- AWS KMS: Mã hóa dữ liệu ở trạng thái lưu trữ và truyền tải, tăng cường bảo mật.
+- AWS Secrets Manager: Lưu trữ và mã hóa thông tin bí mật
+- AWS CodeBuild: Biên dịch, kiểm thử và đóng gói mã nguồn tự động.
+- AWS CodePipeline: Tự động hóa toàn bộ quy trình CI/CD — từ commit, build, test đến triển khai ứng dụng lên môi trường AWS.
 
-Dựa trên các giả định sử dụng vừa phải:
-- 5.000-10.000 lượt tải ảnh lên mỗi tháng
-- Kích thước ảnh trung bình: 2-4 MB
-- Triển khai trong một AWS Region duy nhất
-- CloudFront: 50-100 GB/tháng lưu lượng ra
-- DynamoDB: Chế độ dung lượng On-Demand
-- CloudWatch Logs: Lưu giữ 30 ngày
 
-**Chi phí hàng tháng ước tính: Dưới 70 USD**
+*Thiết kế thành phần*  
+- Xác thực người dùng: Amazon Cognito đảm nhiệm đăng nhập, quản lý token và phân quyền.
+- Xử lý logic ứng dụng: AWS Lambda tiếp nhận yêu cầu từ API Gateway để lưu hành trình, tải ảnh và phân tích dữ liệu.
+- Quản lý dữ liệu: Amazon DynamoDB lưu thông tin chuyến đi, OpenSearch hỗ trợ tìm kiếm và truy vấn nhanh.
+- Xử lý hàng đợi: Amazon SQS (Main Queue) tiếp nhận các yêu cầu xử lý ảnh từ S3 trước khi gọi Lambda; Dead Letter Queue (DLQ) lưu các thông điệp thất bại để xử lý sau.
+- Phân tích hình ảnh: Amazon Rekognition nhận diện nội dung và gắn nhãn tự động.
+- Dữ liệu bản đồ & định vị: Amazon Location Service theo dõi vị trí và hiển thị bản đồ.
+- Lưu trữ nội dung: Amazon S3 lưu trữ ảnh, dữ liệu người dùng và tệp tĩnh; nội dung được phân phối toàn cầu thông qua Amazon CloudFront (được bảo vệ bởi AWS WAF, SSL/TLS qua ACM, và định tuyến bởi Route 53).
+- Giám sát & thông báo: Amazon CloudWatch giám sát log và hiệu năng; SNS gửi cảnh báo và thông báo đến người dùng.
+- Phân phối & bảo mật web: AWS IAM quản lý quyền truy cập giữa các dịch vụ; AWS Secrets Manager và KMS bảo vệ thông tin nhạy cảm.
+- Triển khai & CI/CD: AWS CodeBuild và CodePipeline tự động hóa quy trình build, test và triển khai ứng dụng.
 
-Các yếu tố chi phí chính:
-- **Amazon S3**: Lưu trữ và yêu cầu cho ảnh và nội dung tĩnh
-- **Amazon Rekognition**: Chi phí phân tích mỗi ảnh
-- **Amazon CloudFront**: Phân phối nội dung toàn cầu
-- **AWS Lambda**: Thời gian tính toán cho xử lý
-- **Amazon DynamoDB**: Dung lượng đọc/ghi theo yêu cầu
-- **Amazon Location Service**: Hiển thị bản đồ và mã hóa địa lý
-- **Các dịch vụ khác**: API Gateway, SQS, CloudWatch, SNS (chi phí tối thiểu)
+### 4. Triển khai kỹ thuật  
+*Các giai đoạn triển khai*  
+Dự án được chia thành hai phần chính — phát triển ứng dụng web và tích hợp hạ tầng AWS — với bốn giai đoạn triển khai cụ thể:
 
-**Chi phí phát triển**
+1. Phân tích yêu cầu và thiết kế kiến trúc: Nghiên cứu các dịch vụ AWS phù hợp (CloudFront, WAF, Cognito, DynamoDB , Lambda, API Gateway, S3...) và vẽ sơ đồ kiến trúc tổng thể (Tháng 1).
+2. Tính toán chi phí và mô phỏng hệ thống: Ước tính chi phí từng dịch vụ bằng AWS Pricing Calculator, thử nghiệm quy trình xử lý ảnh và vị trí để kiểm tra tính khả thi. Tối ưu kiến trúc và tài nguyên: Giảm số request, tận dụng cache CloudFront và tối ưu dung lượng S3 để giảm chi phí; tinh chỉnh Lambda và API Gateway cho hiệu năng cao (Tháng 2).
+3. Phát triển, kiểm thử và triển khai: Lập trình ứng dụng web, kiểm thử bảo mật bằng WAF và giám sát hoạt động bằng CloudWatch (Tháng 3).
 
-| Nguồn lực | Giá (USD/giờ) | Tổng giờ | Tổng chi phí |
-|-----------|---------------|----------|--------------|
-| Solutions Architect (1) | $20 | 44 | $880 |
-| Engineers - FE/BE/DevOps (4) | $12 | 228 | $2,736 |
-| QA Engineer | $8 | 16 | $128 |
-| **Tổng** | | **288** | **$3,744** |
+*Yêu cầu kỹ thuật*  
+- Frontend: Ứng dụng web xây dựng bằng React.js, triển khai tĩnh trên Amazon S3, phân phối toàn cầu qua CloudFront giúp tăng tốc độ và giảm tải backend.
+- Bảo mật & truy cập: AWS WAF chống tấn công web; AWS Certificate Manager (ACM) cung cấp chứng chỉ SSL/TLS, Amazon Cognito quản lý xác thực người dùng (email, OAuth2).
+- Backend: API Gateway tiếp nhận yêu cầu, chuyển đến AWS Lambda xử lý nghiệp vụ như ghi nhật ký, tải ảnh, truy vấn dữ liệu.
+- Xử lý hàng đợi: Amazon SQS (Main Queue) đệm các yêu cầu xử lý ảnh được kích hoạt từ S3, trong khi Dead Letter Queue (DLQ) lưu trữ thông điệp lỗi để xử lý sau.
+- Cơ sở dữ liệu: Amazon DynamoDB lưu trữ dữ liệu hành trình, bài viết, và thông tin người dùng
+- Phân tích ảnh: Amazon Rekognition nhận diện cảnh vật, khuôn mặt, gợi ý nhãn ảnh.
+- Định vị & bản đồ: Amazon Location Service trực quan hóa tọa độ GPS trên bản đồ tương tác.
+- Giám sát hệ thống: CloudWatch thu thập log, AWS Secrets Manager vàKMS bảo vệ thông tin nhạy cảm.
+- Thông báo: Amazon SNS gửi cảnh báo khi có lỗi hệ thống hoặc người dùng mới.
+- Triển khai & CI/CD: AWS CodeBuild và AWS CodePipeline tự động hóa quy trình build, test và triển khai ứng dụng.
 
-### 7. Đánh giá rủi ro
-#### Các rủi ro chính và giảm thiểu
+### 5. Lộ trình & Mốc triển khai  
+- *Thực tập (Tháng 1–3)*:  
+    - Tháng 1: Học AWS và tích lũy kiến thức 
+    - Tháng 2: Thiết kế, tính chi phí và điều chỉnh kiến trúc.  
+    - Tháng 3: Triển khai, kiểm thử, đưa vào sử dụng.  
+- *Sau triển khai*: Nghiên cứu thêm trong vòng 1 năm.  
 
-**Vượt chi phí**
-- **Rủi ro**: Chi phí Rekognition có thể vượt dự báo nếu lượt tải ảnh tăng đột biến
-- **Giảm thiểu**: Triển khai cảnh báo AWS Budget, tối ưu hóa kích thước ảnh trước khi xử lý, đặt cảnh báo CloudWatch cho ngưỡng chi phí
-- **Tác động**: Trung bình | **Xác suất**: Thấp
+### 6. Ước tính ngân sách  
+Có thể xem chi phí trên [AWS Pricing Calculator](https://calculator.aws/#/estimate?id=e732e6253c20390cbb8d794f05b4a951dec9d574)
+  
 
-**Lỗ hổng bảo mật**
-- **Rủi ro**: Chính sách IAM cấu hình sai hoặc S3 bucket bị lộ
-- **Giảm thiểu**: Áp dụng chính sách IAM least-privilege, bật AWS Config để giám sát tuân thủ, kiểm tra bảo mật định kỳ
-- **Tác động**: Cao | **Xác suất**: Thấp
+*Chi phí hạ tầng* 
+- Amazon Route 53: 0,50 USD/tháng 
+- AWS Certificate Manager: 0,0 USD/tháng
+- Amazon CloudFront: 0,61 USD/tháng
+- AWS WAF: 0,6 USD/ tháng
+- AWS Lambda: 0,01 USD/tháng
+- Amazon API Gateway: 0,45 USD/tháng
+- Amazon S3: 1,47 USD/tháng
+- Amazon DynamoDB: 16,35 USD/tháng
+- Amazon Cognito: 5,00 USD/tháng
+- Amazon Rekognition: 10,08 USD/tháng
+- Amazon Location Service: 4,35 USD/tháng
+- Amazon SNS: 2,58 USD/tháng
+- Amazon SQS (Main Queue): 3,1 USD/tháng
+- Amazon CloudWatch: 6,87 USD/tháng
+- AWS IAM: 0,00 USD/tháng
+- AWS Secrets Manager: 0,4 USD/tháng
+- AWS KMS: 2,3 USD/tháng
+- AWS CodeBuild: 0,8 USD/tháng
+- AWS CodePipeline: 0,00 USD/tháng
 
-**Vấn đề hiệu suất**
-- **Rủi ro**: Tải ảnh chậm hoặc hiển thị bản đồ chậm do độ trễ mạng
-- **Giảm thiểu**: Sử dụng CloudFront để phân phối toàn cầu, tối ưu hóa nén ảnh, triển khai tải tiến trình
-- **Tác động**: Trung bình | **Xác suất**: Trung bình
+*Tổng*: 61,78 USD/tháng, 946,56 USD/năm
 
-**Độ chính xác Rekognition**
-- **Rủi ro**: Kết quả phát hiện cảnh không chính xác ảnh hưởng đến trải nghiệm người dùng
-- **Giảm thiểu**: Đặt ngưỡng độ tin cậy, cho phép sửa thủ công, cung cấp cơ chế phản hồi người dùng
-- **Tác động**: Thấp | **Xác suất**: Trung bình
 
-#### Kế hoạch dự phòng
-- Template CloudFormation cho phép rollback nhanh các thay đổi hạ tầng
-- Dead Letter Queue (DLQ) bảo toàn các thông điệp thất bại để điều tra
-- Cảnh báo CloudWatch kích hoạt thông báo SNS để phản ứng sự cố ngay lập tức
+### 7. Đánh giá rủi ro  
+*Ma trận rủi ro*  
+- Vi phạm bảo mật hoặc mất quyền truy cập người dùng: Ảnh hưởng cao, xác suất rất thấp.
+- Tăng chi phí do Rikognition: Ảnh hưởng cao, xác suất trung bình
+- Sai lệch dữ liệu vị trí: Ảnh hưởng cao, xác suất thấp
 
-### 8. Kết quả kỳ vọng
+*Chiến lược giảm thiểu*  
+- Mạng: Sử dụng Amazon CloudFront để phân phối nội dung nhanh và ổn định, hạn chế phụ thuộc vào kết nối khu vực.
+- Hạ tầng: Tận dụng cơ chế tự động khởi động lại hàm Lambda và lưu cache trên trình duyệt để giảm gián đoạn dịch vụ.
+- Bảo mật: Áp dụng xác thực đa lớp qua Amazon Cognito và phân quyền truy cập chặt chẽ cho tài nguyên S3.
+- Chi phí: Thiết lập cảnh báo ngân sách qua AWS Budgets, tối ưu hóa Lambda và S3 theo truy cập thực tế.
 
-#### Tiêu chí thành công dự án
-- **Uptime**: 99% khả dụng nền tảng thông qua kiến trúc serverless
-- **Bảo mật**: Xác thực an toàn qua Cognito với MFA tùy chọn, mã hóa khi lưu trữ và truyền tải
-- **Chi phí**: Chi phí hạ tầng hàng tháng dưới 70 USD
-- **Tự động hóa**: 100% tự động hóa CI/CD cho build, test và triển khai
-- **Giám sát**: Cảnh báo CloudWatch trong vòng 1 phút khi có lỗi hoặc vượt ngưỡng
-- **Độ chính xác**: 95%+ độ chính xác trong hiển thị vị trí được gắn thẻ của người dùng trên bản đồ
+*Kế hoạch dự phòng*  
+- Tích hợp AWS SNS & CloudWatch Alerts để gửi thông báo ngay khi hệ thống gặp sự cố (ví dụ: lỗi Lambda, quá tải API Gateway, vượt ngân sách).
+- Sử dụng CloudFormation để khôi phục nhanh toàn bộ cấu hình dịch vụ khi gặp sự cố nghiêm trọng.
+- Lưu trữ bản sao dữ liệu hình ảnh và nhật ký trên S3 phiên bản sao lưu (S3 Versioning) để tránh mất mát.  
 
-#### Cải tiến kỹ thuật
-- Kinh nghiệm thực tế với kiến trúc serverless AWS cấp production
-- Hiểu biết về các nguyên tắc AWS Well-Architected Framework
-- Kiến thức thực tế về tự động hóa CI/CD và thực hành DevOps
-- Kinh nghiệm với phát triển frontend hiện đại (React) và backend (Lambda)
-
-#### Giá trị dài hạn
-- Mẫu kiến trúc có thể tái sử dụng cho các ứng dụng serverless tương tự
-- Tài liệu toàn diện và runbook vận hành
-- Nền tảng cho các cải tiến trong tương lai (ứng dụng di động, tính năng xã hội, đề xuất AI)
-- Dự án portfolio thể hiện kỹ năng phát triển cloud-native
+### 8. Kết quả kỳ vọng  
+*Cải tiến kỹ thuật*: Ứng dụng giúp người dùng tự động lưu trữ, phân tích và hiển thị hành trình du lịch trên bản đồ thay vì ghi chép thủ công.  
+*Giá trị dài hạn*:Tạo ra kho dữ liệu hành trình, hình ảnh và cảm xúc du lịch phong phú — nền tảng cho các ứng dụng gợi ý địa điểm, cá nhân hóa trải nghiệm. 
