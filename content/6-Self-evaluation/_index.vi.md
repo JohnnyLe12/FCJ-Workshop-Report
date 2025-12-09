@@ -1,4 +1,4 @@
----
+﻿---
 title: "Tự đánh giá"
 date: 2025-09-10
 weight: 6
@@ -6,19 +6,20 @@ chapter: false
 pre: " <b> 6. </b> "
 ---
 
-Trong suốt thời gian thực tập tại **Công ty TNHH Amazon Web Services Vietnam** từ ngày **08/09/2025** đến ngày **09/12/2025**, tôi đã có cơ hội học hỏi, rèn luyện và áp dụng kiến thức đã được trang bị tại trường vào môi trường làm việc thực tế.
+Trong suốt thời gian thực tập tại **Công ty TNHH Amazon Web Services Vietnam** từ ngày **08/09/2025** đến ngày **09/12/2025**, em đã có cơ hội học hỏi, rèn luyện và áp dụng kiến thức đã được trang bị tại trường vào môi trường làm việc thực tế.
 
 #### Công việc đã thực hiện
 
-Trong thời gian thực tập, tôi đã tham gia vào các công việc chính sau:
+Trong thời gian thực tập, em đã tham gia vào các công việc chính sau:
 
+* **Phát triển dự án Travel Guide Web App**: Tham gia xây dựng ứng dụng web hướng dẫn du lịch cùng nhóm, sử dụng các dịch vụ AWS để triển khai và vận hành hệ thống.
 * **Dịch thuật và bản địa hóa nội dung kỹ thuật**: Dịch các bài blog, tài liệu kỹ thuật về AWS từ tiếng Anh sang tiếng Việt, đảm bảo nội dung chính xác và dễ hiểu cho cộng đồng người dùng Việt Nam
 * **Tham gia vào các sự kiện cộng đồng**: Tham gia các sự kiện workshop, meetup về AWS, tương tác trực tiếp với cộng đồng developer
 * **Nghiên cứu và thực hành các dịch vụ AWS**: Tìm hiểu sâu về các dịch vụ cloud computing như EC2, S3, Lambda, RDS và các best practices trong việc triển khai ứng dụng trên AWS
 
 #### Kỹ năng đã phát triển
 
-Qua quá trình thực tập, tôi đã cải thiện đáng kể các kỹ năng sau:
+Qua quá trình thực tập, em đã cải thiện đáng kể các kỹ năng sau:
 
 * **Kỹ năng chuyên môn**: Hiểu biết sâu hơn về cloud computing, kiến trúc hệ thống trên AWS, và các best practices trong việc sử dụng dịch vụ cloud
 * **Kỹ năng dịch thuật kỹ thuật**: Nâng cao khả năng chuyển ngữ các thuật ngữ kỹ thuật một cách chính xác và dễ hiểu
@@ -29,50 +30,51 @@ Qua quá trình thực tập, tôi đã cải thiện đáng kể các kỹ năn
 
 #### Tác phong làm việc
 
-Về tác phong, tôi luôn cố gắng:
+Về tác phong, em luôn cố gắng:
 * Hoàn thành tốt nhiệm vụ được giao với tinh thần trách nhiệm cao
 * Chủ động tìm hiểu và học hỏi kiến thức mới liên quan đến công việc
 * Sẵn sàng nhận feedback và điều chỉnh để cải thiện bản thân
 * Đóng góp ý tưởng và sáng kiến cho các dự án của team
 
-Để phản ánh một cách khách quan quá trình thực tập, tôi xin tự đánh giá bản thân dựa trên các tiêu chí dưới đây:
+Để phản ánh một cách khách quan quá trình thực tập, em xin tự đánh giá bản thân dựa trên các tiêu chí dưới đây:
 
 
-| STT | Tiêu chí                            | Mô tả                                                                                            | Tốt | Khá | Trung bình |
-| --- | ----------------------------------- | ------------------------------------------------------------------------------------------------ | --- | --- | ---------- |
-| 1   | **Kiến thức và kỹ năng chuyên môn** | Hiểu biết về ngành, áp dụng kiến thức vào thực tế, kỹ năng sử dụng công cụ, chất lượng công việc | ✅   | ☐   | ☐          |
-| 2   | **Khả năng học hỏi**                | Tiếp thu kiến thức mới, học hỏi nhanh                                                            | ☐   | ✅   | ☐          |
-| 3   | **Chủ động**                        | Tự tìm hiểu, nhận nhiệm vụ mà không chờ chỉ dẫn                                                  | ✅   | ☐   | ☐          |
-| 4   | **Tinh thần trách nhiệm**           | Hoàn thành công việc đúng hạn, đảm bảo chất lượng                                                | ✅   | ☐   | ☐          |
-| 5   | **Kỷ luật**                         | Tuân thủ giờ giấc, nội quy, quy trình làm việc                                                   | ☐   | ☐   | ✅          |
-| 6   | **Tính cầu tiến**                   | Sẵn sàng nhận feedback và cải thiện bản thân                                                     | ☐   | ✅   | ☐          |
-| 7   | **Giao tiếp**                       | Trình bày ý tưởng, báo cáo công việc rõ ràng                                                     | ☐   | ✅   | ☐          |
-| 8   | **Hợp tác nhóm**                    | Làm việc hiệu quả với đồng nghiệp, tham gia nhóm                                                 | ✅   | ☐   | ☐          |
-| 9   | **Ứng xử chuyên nghiệp**            | Tôn trọng đồng nghiệp, đối tác, môi trường làm việc                                              | ✅   | ☐   | ☐          |
-| 10  | **Tư duy giải quyết vấn đề**        | Nhận diện vấn đề, đề xuất giải pháp, sáng tạo                                                    | ☐   | ✅   | ☐          |
-| 11  | **Đóng góp vào dự án/tổ chức**      | Hiệu quả công việc, sáng kiến cải tiến, ghi nhận từ team                                         | ✅   | ☐   | ☐          |
-| 12  | **Tổng thể**                        | Đánh giá chung về toàn bộ quá trình thực tập                                                     | ✅   | ☐   | ☐          |
+| STT | Tiêu chí                                  | Mô tả                                                                                                     | Tốt | Khá | Trung bình |
+| --- | ----------------------------------------- | --------------------------------------------------------------------------------------------------------- | --- | --- | ---------- |
+| 1   | **Kiến thức về Cloud Computing**          | Nắm vững các dịch vụ AWS, hiểu kiến trúc hệ thống cloud, áp dụng best practices                          | ☐   | ✅   | ☐          |
+| 2   | **Kỹ năng Dịch thuật Kỹ thuật**           | Chuyển ngữ chính xác thuật ngữ, nội dung dễ hiểu, bản địa hóa phù hợp văn hóa                            | ✅   | ☐   | ☐          |
+| 3   | **Tinh thần Chủ động & Sáng tạo**         | Tự nghiên cứu, đề xuất ý tưởng mới, không ngại thử nghiệm công nghệ                                      | ☐   | ✅   | ☐          |
+| 4   | **Quản lý Thời gian & Deadline**          | Ưu tiên công việc hợp lý, hoàn thành đúng tiến độ, báo cáo kịp thời                                      | ☐   | ✅   | ☐          |
+| 5   | **Tuân thủ Quy trình**                    | Chấp hành nội quy, giờ giấc, quy trình làm việc của công ty                                              | ☐   | ✅   | ☐          |
+| 6   | **Khả năng Tiếp thu & Phát triển**        | Học hỏi nhanh kiến thức mới, áp dụng feedback để cải thiện                                               | ☐   | ✅   | ☐          |
+| 7   | **Kỹ năng Trình bày & Báo cáo**           | Diễn đạt rõ ràng, trình bày có logic, viết tài liệu dễ hiểu                                              | ☐   | ✅   | ☐          |
+| 8   | **Làm việc Nhóm & Hỗ trợ Đồng nghiệp**    | Phối hợp tốt trong team, chia sẻ kiến thức, sẵn sàng giúp đỡ                                             | ✅   | ☐   | ☐          |
+| 9   | **Thái độ & Đạo đức Nghề nghiệp**         | Tôn trọng đồng nghiệp, giữ thái độ tích cực, bảo mật thông tin                                           | ✅   | ☐   | ☐          |
+| 10  | **Phân tích & Xử lý Vấn đề**              | Tìm hiểu nguyên nhân, đưa ra giải pháp khả thi, xử lý tình huống                                         | ☐   | ☐   | ✅          |
+| 11  | **Đóng góp cho Dự án & Cộng đồng**        | Hoàn thành tốt nhiệm vụ trong project, tham gia sự kiện, hỗ trợ community                                | ☐   | ✅   | ☐          |
+| 12  | **Đánh giá Tổng quan**                    | Hiệu suất làm việc chung, mức độ đạt được mục tiêu thực tập                                              | ☐   | ✅   | ☐          |
 
 ### Những điểm mạnh
 
-* **Tinh thần trách nhiệm cao**: Luôn hoàn thành công việc đúng hạn và đảm bảo chất lượng
-* **Chủ động trong công việc**: Tự tìm hiểu, nghiên cứu và đề xuất giải pháp mà không cần chờ chỉ dẫn chi tiết
-* **Khả năng làm việc nhóm tốt**: Phối hợp hiệu quả với các thành viên trong team, sẵn sàng hỗ trợ đồng nghiệp
-* **Kiến thức chuyên môn vững**: Áp dụng tốt kiến thức đã học vào thực tế, nhanh chóng tiếp thu công nghệ mới
-* **Ứng xử chuyên nghiệp**: Tôn trọng đồng nghiệp, giữ thái độ tích cực trong môi trường làm việc
+* **Kỹ năng dịch thuật kỹ thuật xuất sắc**: Có khả năng chuyển ngữ chính xác các thuật ngữ AWS phức tạp, bản địa hóa nội dung phù hợp với văn hóa Việt Nam, đảm bảo tài liệu dễ hiểu cho cộng đồng
+* **Làm việc nhóm và hỗ trợ đồng nghiệp hiệu quả**: Phối hợp tốt với các thành viên trong team, sẵn sàng chia sẻ kiến thức và giúp đỡ đồng nghiệp khi cần thiết
+* **Thái độ và đạo đức nghề nghiệp tốt**: Luôn tôn trọng đồng nghiệp, giữ thái độ tích cực trong công việc, có ý thức bảo mật thông tin
+* **Khả năng tiếp thu và phát triển**: Học hỏi nhanh các kiến thức mới về AWS, sẵn sàng nhận feedback và áp dụng để cải thiện bản thân
+* **Quản lý thời gian hợp lý**: Biết cách ưu tiên công việc, hoàn thành nhiệm vụ đúng tiến độ và báo cáo kịp thời
 
 ### Những điểm cần cải thiện
 
-* **Tính kỷ luật**: Cần nâng cao ý thức chấp hành nghiêm chỉnh nội quy về giờ giấc và quy trình làm việc của công ty
-* **Tư duy giải quyết vấn đề**: Cần rèn luyện thêm khả năng phân tích vấn đề một cách có hệ thống và đưa ra giải pháp tối ưu hơn
-* **Kỹ năng giao tiếp**: Cần cải thiện khả năng diễn đạt ý tưởng rõ ràng hơn, đặc biệt trong các tình huống phức tạp hoặc khi làm việc với nhiều bên liên quan
+* **Kiến thức về Cloud Computing**: Mặc dù đã có nền tảng tốt, nhưng cần tìm hiểu sâu hơn về kiến trúc hệ thống cloud và các best practices để áp dụng vào dự án thực tế một cách tối ưu
+* **Khả năng phân tích và xử lý vấn đề**: Đây là điểm yếu lớn nhất cần cải thiện. Cần rèn luyện tư duy phân tích có hệ thống, tìm hiểu nguyên nhân gốc rễ của vấn đề và đưa ra giải pháp khả thi, hiệu quả hơn
+* **Tinh thần chủ động và sáng tạo**: Cần chủ động hơn trong việc đề xuất ý tưởng mới và không ngại thử nghiệm các công nghệ, giải pháp khác nhau
+* **Đóng góp cho dự án và cộng đồng**: Cần tăng cường mức độ đóng góp vào các dự án của team và tham gia tích cực hơn vào các hoạt động cộng đồng AWS
 
 ### Lời cảm ơn
 
-Tôi xin chân thành cảm ơn **Công ty TNHH Amazon Web Services Vietnam** đã tạo cơ hội cho tôi được thực tập và trải nghiệm môi trường làm việc chuyên nghiệp. Đặc biệt, tôi xin gửi lời cảm ơn sâu sắc đến:
+em xin chân thành cảm ơn **Công ty TNHH Amazon Web Services Vietnam** đã tạo cơ hội cho em được thực tập và trải nghiệm môi trường làm việc chuyên nghiệp. Đặc biệt, em xin gửi lời cảm ơn sâu sắc đến:
 
-* **Mentor và các anh chị trong team** đã nhiệt tình hướng dẫn, chia sẻ kinh nghiệm và tạo điều kiện tốt nhất để tôi học hỏi và phát triển
+* **Mentor và các anh chị trong team** đã nhiệt tình hướng dẫn, chia sẻ kinh nghiệm và tạo điều kiện tốt nhất để em học hỏi và phát triển
 * **Các đồng nghiệp** đã luôn hỗ trợ, động viên và tạo môi trường làm việc thân thiện, tích cực
-* **Nhà trường** đã trang bị cho tôi nền tảng kiến thức vững chắc để có thể áp dụng vào thực tế
+* **Nhà trường** đã trang bị cho em nền tảng kiến thức vững chắc để có thể áp dụng vào thực tế
 
-Thời gian thực tập này là một trải nghiệm vô cùng quý giá, giúp tôi trưởng thành hơn cả về chuyên môn lẫn kỹ năng mềm. Tôi hy vọng sẽ có cơ hội được tiếp tục đồng hành cùng AWS trong tương lai.
+Thời gian thực tập này là một trải nghiệm vô cùng quý giá, giúp em trưởng thành hơn cả về chuyên môn lẫn kỹ năng mềm. em hy vọng sẽ có cơ hội được tiếp tục đồng hành cùng AWS trong tương lai.

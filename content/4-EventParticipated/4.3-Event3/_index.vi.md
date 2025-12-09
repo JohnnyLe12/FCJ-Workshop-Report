@@ -16,42 +16,42 @@ pre: " <b> 4.3. </b> "
 
 ## Danh sách diễn giả
 
-### Le Vu Xuan An
+### Lê Vũ Xuân An
 **AWS Cloud Club Captain (HCMU/TE)**
 
 Captain của AWS Cloud Club tại Đại học Bách Khoa TP.HCM, chuyên về cloud architecture và security.
 
-### Tran Duc Anh
+### Trần Đức Anh
 **AWS Cloud Club Captain (SGU)**
 
 Captain của AWS Cloud Club tại Đại học Sài Gòn, có kinh nghiệm về AWS security services.
 
-### Tran Doan Cong Ly
+### Trần Đoàn Công Lý
 **AWS Cloud Club Captain (PTIT)**
 
 Captain của AWS Cloud Club tại Học viện Công nghệ Bưu chính Viễn thông, chuyên về infrastructure security.
 
-### Danh Hoang Hieu Nghi
+### Danh Hoàng Hiếu Nghị
 **AWS Cloud Club Captain (HUFLIT)**
 
 Captain của AWS Cloud Club tại Đại học Ngoại ngữ - Tin học TP.HCM, có expertise về cloud security practices.
 
-### Nguyen Tuan Thinh
+### Nguyễn Tuấn Thịnh
 **Cloud Engineer Trainee**
 
 Cloud Engineer đang trong quá trình đào tạo, chia sẻ kinh nghiệm thực hành với AWS security services.
 
-### Nguyen Do Thanh
+### Nguyễn Đỗ Thanh
 **Cloud Engineer**
 
 Cloud Engineer với kinh nghiệm triển khai và vận hành secure cloud infrastructure.
 
-### Thinh Lam
+### Thịnh Lâm
 **FCJer**
 
 Thành viên First Cloud Journey, chia sẻ trải nghiệm học tập và áp dụng security best practices.
 
-### Viet Nguyen
+### Việt Nguyễn
 **FCJer**
 
 Thành viên First Cloud Journey, có kinh nghiệm về AWS security implementation.

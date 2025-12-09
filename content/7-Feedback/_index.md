@@ -6,42 +6,45 @@ chapter: false
 pre: " <b> 7. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
-{{% /notice %}}
-
-> Here, you can freely share your personal opinions about your experience participating in the First Cloud Journey program. This will help the FCJ team improve any shortcomings based on the following aspects:
-
 ### Overall Evaluation
 
 **1. Working Environment**  
-The working environment is very friendly and open. FCJ members are always willing to help whenever I encounter difficulties, even outside working hours. The workspace is tidy and comfortable, helping me focus better. However, I think it would be nice to have more social gatherings or team bonding activities to strengthen relationships.
+The workspace at AWS Vietnam provides a comfortable and professional atmosphere. Team members always create an open environment, willing to answer questions and provide support when needed. What stands out is the flexible work culture that allows interns to proactively manage their tasks.
 
 **2. Support from Mentor / Team Admin**  
-The mentor provides very detailed guidance, explains clearly when I don’t understand, and always encourages me to ask questions. The admin team supports administrative tasks, provides necessary documents, and creates favorable conditions for me to work effectively. I especially appreciate that the mentor allows me to try and solve problems myself instead of just giving the answer.
+The mentor not only guides work tasks but also shares practical experiences, helping me better understand the industry and career direction. What I appreciate most is that the mentor encourages me to research and solve problems independently, only intervening when truly necessary. The admin team always provides quick support for administrative matters, documentation, and creates favorable conditions for work.
 
 **3. Relevance of Work to Academic Major**  
-The tasks I was assigned align well with the knowledge I learned at university, while also introducing me to new areas I had never encountered before. This allowed me to both strengthen my foundational knowledge and gain practical skills.
+The assigned tasks have a good connection with knowledge learned at university, especially regarding cloud computing and web technology. At the same time, I was exposed to real-world technologies and workflows that the academic environment hasn't provided. This helped me clearly see how to apply theory to practice.
 
 **4. Learning & Skill Development Opportunities**  
-During the internship, I learned many new skills such as using project management tools, teamwork skills, and professional communication in a corporate environment. The mentor also shared valuable real-world experiences that helped me better plan my career path.
+Interning at AWS opened up many learning opportunities: from technical skills like using AWS services, to soft skills like teamwork, time management, and communication. Participating in community events and workshops also helped me expand my network and better understand the cloud computing market in Vietnam.
 
 **5. Company Culture & Team Spirit**  
-The company culture is very positive: everyone respects each other, works seriously but still keeps things enjoyable. When there are urgent projects, everyone works together and supports one another regardless of their position. This made me feel like a real part of the team, even as an intern.
+The work culture here demonstrates mutual respect and support. Everyone works seriously but without creating pressure, always ready to share knowledge and experience. Even as an intern, I was listened to and allowed to contribute to real projects, which was very motivating.
 
 **6. Internship Policies / Benefits**  
-The company provides an internship allowance and offers flexible working hours when needed. In addition, having the opportunity to join internal training sessions is a big plus.
+The company provides a reasonable internship allowance and allows flexible working hours when needed. Especially, having the opportunity to participate in internal training sessions and AWS events is a valuable opportunity for learning and development. However, having additional long-term mentorship programs would be even better.
 
 ---
 
 ### Additional Questions
-- What did you find **most satisfying** during your internship?  
-- What do you think the company **should improve** for future interns?  
-- If recommending to a friend, would you **suggest they intern here**? Why or why not?  
 
----
+**1. What did you find most satisfying during your internship?**  
+What I found most satisfying was working in a professional environment with experienced and passionate people. Being involved in a real project (Travel Guide Web App) and AWS community activities helped me not only learn technical knowledge but also better understand how to operate a project from idea to deployment. Additionally, the enthusiastic support from my mentor and team is something I highly value.
+
+**2. What do you think the company should improve for future interns?**  
+I think the company could improve by building a clearer roadmap for interns from the start, helping them know what goals to achieve at each stage
+
+**3. If recommending to a friend, would you suggest they intern here? Why or why not?**  
+Yes, I would definitely recommend it. AWS Vietnam is an ideal place for those who want to learn about cloud computing and work in an international technology environment. You will learn from talented people, access advanced technology, and have the opportunity to develop both technical and soft skills. However, you need to have a proactive spirit and be ready to continuously learn.
 
 ### Suggestions & Expectations
-- Do you have any suggestions to improve the internship experience?  
-- Would you like to continue this program in the future?  
-- Any other comments (free sharing):
+
+**1. Do you have any suggestions to improve the internship experience?**  
+
+**2. Would you like to continue this program in the future?**  
+Yes, I very much hope to have the opportunity to continue working with AWS, whether as an extended internship or full-time after graduation. The work environment here aligns with my career direction, and I believe I still have much to learn and contribute.
+
+**3. Any other comments (free sharing):**  
+Thank you to AWS Vietnam and especially the team for creating the best conditions for me throughout the internship. This has been an invaluable experience, helping me grow and become more confident in my career path. I hope to have the opportunity to work with AWS in the future and contribute more to the cloud computing community in Vietnam.

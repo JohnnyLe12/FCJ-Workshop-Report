@@ -12,6 +12,7 @@ During my internship at **Amazon Web Services Vietnam Co., Ltd.** from **09/08/2
 
 During the internship period, I participated in the following main tasks:
 
+* **Travel Guide Web App project development**: Participated in building a travel guide web application with my team, utilizing AWS services to deploy and operate the system.
 * **Technical content translation and localization**: Translated AWS blog posts and technical documentation from English to Vietnamese, ensuring accurate and accessible content for the Vietnamese user community
 * **Participation in community events**: Participated in AWS workshops and meetups, directly engaging with the developer community
 * **AWS services research and hands-on practice**: Gained in-depth knowledge of cloud computing services such as EC2, S3, Lambda, RDS, and best practices for deploying applications on AWS
@@ -37,34 +38,35 @@ In terms of work ethic, I always strived to:
 
 To objectively reflect on my internship period, I would like to evaluate myself based on the following criteria:
 
-| No. | Criteria                            | Description                                                                                      | Good | Fair | Average |
-| --- | ----------------------------------- | ------------------------------------------------------------------------------------------------ | ---- | ---- | ------- |
-| 1   | **Professional knowledge & skills** | Understanding of the field, applying knowledge in practice, proficiency with tools, work quality | ✅    | ☐    | ☐       |
-| 2   | **Ability to learn**                | Ability to absorb new knowledge and learn quickly                                                | ☐    | ✅    | ☐       |
-| 3   | **Proactiveness**                   | Taking initiative, seeking out tasks without waiting for instructions                            | ✅    | ☐    | ☐       |
-| 4   | **Sense of responsibility**         | Completing tasks on time and ensuring quality                                                    | ✅    | ☐    | ☐       |
-| 5   | **Discipline**                      | Adhering to schedules, rules, and work processes                                                 | ☐    | ☐    | ✅       |
-| 6   | **Progressive mindset**             | Willingness to receive feedback and improve oneself                                              | ☐    | ✅    | ☐       |
-| 7   | **Communication**                   | Presenting ideas and reporting work clearly                                                      | ☐    | ✅    | ☐       |
-| 8   | **Teamwork**                        | Working effectively with colleagues and participating in teams                                   | ✅    | ☐    | ☐       |
-| 9   | **Professional conduct**            | Respecting colleagues, partners, and the work environment                                        | ✅    | ☐    | ☐       |
-| 10  | **Problem-solving skills**          | Identifying problems, proposing solutions, and showing creativity                                | ☐    | ✅    | ☐       |
-| 11  | **Contribution to project/team**    | Work effectiveness, innovative ideas, recognition from the team                                  | ✅    | ☐    | ☐       |
-| 12  | **Overall**                         | General evaluation of the entire internship period                                               | ✅    | ☐    | ☐       |
+| No. | Criteria                                    | Description                                                                                           | Good | Fair | Average |
+| --- | ------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ---- | ---- | ------- |
+| 1   | **Cloud Computing Knowledge**               | Proficiency in AWS services, understanding cloud architecture, applying best practices                | ☐    | ✅    | ☐       |
+| 2   | **Technical Translation Skills**            | Accurate terminology translation, clear content, culturally appropriate localization                  | ✅    | ☐    | ☐       |
+| 3   | **Initiative & Creativity**                 | Self-research, proposing new ideas, willingness to experiment with technology                         | ☐    | ✅    | ☐       |
+| 4   | **Time Management & Meeting Deadlines**     | Prioritizing tasks effectively, completing on schedule, timely reporting                              | ☐    | ✅    | ☐       |
+| 5   | **Process Compliance**                      | Adhering to company regulations, schedules, and work procedures                                       | ☐    | ✅    | ☐       |
+| 6   | **Learning & Development Ability**          | Quick absorption of new knowledge, applying feedback for improvement                                  | ☐    | ✅    | ☐       |
+| 7   | **Presentation & Reporting Skills**         | Clear expression, logical presentation, writing understandable documentation                          | ☐    | ✅    | ☐       |
+| 8   | **Teamwork & Colleague Support**            | Good team coordination, knowledge sharing, willingness to help                                        | ✅    | ☐    | ☐       |
+| 9   | **Attitude & Professional Ethics**          | Respecting colleagues, maintaining positive attitude, information confidentiality                     | ✅    | ☐    | ☐       |
+| 10  | **Analysis & Problem Handling**             | Investigating root causes, providing feasible solutions, situation management                         | ☐    | ☐    | ✅       |
+| 11  | **Project & Community Contribution**        | Successfully completing project tasks, participating in events, supporting community                  | ☐    | ✅    | ☐       |
+| 12  | **Overall Assessment**                      | General work performance, level of achieving internship objectives                                    | ☐    | ✅    | ☐       |
 
 ### Strengths
 
-* **High sense of responsibility**: Always complete work on time and ensure quality
-* **Proactive at work**: Self-research, study, and propose solutions without waiting for detailed instructions
-* **Strong teamwork ability**: Collaborate effectively with team members, willing to support colleagues
-* **Solid professional knowledge**: Successfully apply learned knowledge to practice, quickly absorb new technologies
-* **Professional conduct**: Respect colleagues, maintain a positive attitude in the work environment
+* **Excellent technical translation skills**: Capable of accurately translating complex AWS terminology, localizing content appropriately for Vietnamese culture, ensuring documentation is accessible to the community
+* **Effective teamwork and colleague support**: Coordinate well with team members, willing to share knowledge and help colleagues when needed
+* **Good attitude and professional ethics**: Always respect colleagues, maintain a positive attitude at work, conscious of information confidentiality
+* **Strong learning and development ability**: Quick to learn new AWS knowledge, open to receiving feedback and applying it for self-improvement
+* **Reasonable time management**: Know how to prioritize tasks, complete assignments on schedule, and report in a timely manner
 
 ### Areas for Improvement
 
-* **Discipline**: Need to improve awareness of strictly adhering to company regulations regarding schedules and work processes
-* **Problem-solving thinking**: Need to further develop the ability to analyze problems systematically and provide more optimal solutions
-* **Communication skills**: Need to improve the ability to express ideas more clearly, especially in complex situations or when working with multiple stakeholders
+* **Cloud Computing knowledge**: Although having a good foundation, need to gain deeper understanding of cloud system architecture and best practices to apply them optimally in real projects
+* **Analysis and problem-handling ability**: This is the biggest weakness that needs improvement. Need to develop systematic analytical thinking, investigate root causes of problems, and provide more feasible and effective solutions
+* **Initiative and creativity**: Need to be more proactive in proposing new ideas and not hesitate to experiment with different technologies and solutions
+* **Project and community contribution**: Need to increase the level of contribution to team projects and participate more actively in AWS community activities
 
 ### Acknowledgments
 
