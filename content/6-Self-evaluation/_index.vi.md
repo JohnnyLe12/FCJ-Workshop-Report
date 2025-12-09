@@ -71,7 +71,7 @@ Về tác phong, em luôn cố gắng:
 
 ### Lời cảm ơn
 
-em xin chân thành cảm ơn **Công ty TNHH Amazon Web Services Vietnam** đã tạo cơ hội cho em được thực tập và trải nghiệm môi trường làm việc chuyên nghiệp. Đặc biệt, em xin gửi lời cảm ơn sâu sắc đến:
+Em xin chân thành cảm ơn **Công ty TNHH Amazon Web Services Vietnam** đã tạo cơ hội cho em được thực tập và trải nghiệm môi trường làm việc chuyên nghiệp. Đặc biệt, em xin gửi lời cảm ơn sâu sắc đến:
 
 * **Mentor và các anh chị trong team** đã nhiệt tình hướng dẫn, chia sẻ kinh nghiệm và tạo điều kiện tốt nhất để em học hỏi và phát triển
 * **Các đồng nghiệp** đã luôn hỗ trợ, động viên và tạo môi trường làm việc thân thiện, tích cực
