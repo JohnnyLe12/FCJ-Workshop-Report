@@ -1,6 +1,6 @@
 ---
 title: "Proposal"
-date: 2025-09-10
+date: 2025-12-09
 weight: 2
 chapter: false
 pre: " <b> 2. </b> "
@@ -11,105 +11,163 @@ pre: " <b> 2. </b> "
 
 In this section, you need to summarize the contents of the workshop that you **plan** to conduct.
 
-# IoT Weather Platform for Lab Research
-## A Unified AWS Serverless Solution for Real-Time Weather Monitoring
+# Travel Journal Platform
+## AWS Serverless Solution for Travel Memory Management and Sharing
 
 ### 1. Executive Summary
-The IoT Weather Platform is designed for the ITea Lab team in Ho Chi Minh City to enhance weather data collection and analysis. It supports up to 5 weather stations, with potential scalability to 10-15, utilizing Raspberry Pi edge devices with ESP32 sensors to transmit data via MQTT. The platform leverages AWS Serverless services to deliver real-time monitoring, predictive analytics, and cost efficiency, with access restricted to 5 lab members via Amazon Cognito.
+The Travel Journal platform is developed by FPT University students to enable users to store, manage, and share photos, travel information, and locations they have visited. The platform creates a community for sharing travel experiences while providing a visual interface that allows users to review their journeys through timelines and interactive maps. Built on AWS Serverless architecture, the platform offers high scalability, strong security, and optimized cost efficiency with an estimated monthly cost under USD 70.
 
 ### 2. Problem Statement
-### What’s the Problem?
-Current weather stations require manual data collection, becoming unmanageable with multiple units. There is no centralized system for real-time data or analytics, and third-party platforms are costly and overly complex.
+#### What's the Problem?
+Travelers lack a centralized platform to organize and preserve their travel memories. Photos are scattered across devices, location information is lost over time, and there's no easy way to visualize travel routes or shay.
 
-### The Solution
-The platform uses AWS IoT Core to ingest MQTT data, AWS Lambda and API Gateway for processing, Amazon S3 for storage (including a data lake), and AWS Glue Crawlers and ETL jobs to extract, transform, and load data from the S3 data lake to another S3 bucket for analysis. AWS Amplify with Next.js provides the web interface, and Amazon Cognito ensures secure access. Similar to Thingsboard and CoreIoT, users can register new devices and manage connections, though this platform operates on a smaller scale and is designed for private use. Key features include real-time dashboards, trend analysis, and low operational costs.
+#### The Solution
+The Travel Journal platform leverages AWS Serverless services to provide a comprehensive solution. Users can upload travel photos to Amazon S3, with Amazon Rekognition automatically identifying scenes in images. Travel metadata and notes are stored in Amazon DynamoDB, while Amazon Location Service visualizes travel routes on interactive maps. The platform uses AWS Lambda and API Gateway for backend processing, with an asynchronous processing pipeline via Amazon SQS for image analysis. Amazon Cognito provides secure authentication with optional MFA, and the React-based frontend is delivered globally through Amazon Clo
 
-### Benefits and Return on Investment
-The solution establishes a foundational resource for lab members to develop a larger IoT platform, serving as a study resource, and provides a data foundation for AI enthusiasts for model training or analysis. It reduces manual reporting for each station via a centralized platform, simplifying management and maintenance, and improves data reliability. Monthly costs are $0.66 USD per the AWS Pricing Calculator, with a 12-month total of $7.92 USD. All IoT equipment costs are covered by the existing weather station setup, eliminating additional development expenses. The break-even period of 6-12 months is achieved through significant time savings from reduced manual work.
+#### Benefits and Return on Investmen
+The platform provides students with hands-on experience building production-grade serverless applications following AWS Well-Architected Framework principles. It creates a reusable architecture pattern for similar applications and demonstrates cost-effective cloud solutions. With estimated monthly costs under USD 70 and a fully automated CI/CD pipeline, the platform showcases modern DevOps practices while delivering real value to users who want to preserve and share their travel memories.
 
 ### 3. Solution Architecture
-The platform employs a serverless AWS architecture to manage data from 5 Raspberry Pi-based stations, scalable to 15. Data is ingested via AWS IoT Core, stored in an S3 data lake, and processed by AWS Glue Crawlers and ETL jobs to transform and load it into another S3 bucket for analysis. Lambda and API Gateway handle additional processing, while Amplify with Next.js hosts the dashboard, secured by Cognito. The architecture is detailed below:
+Travel Journal is built using a fully serverless architecture on AWS, optimized for scalability, cost efficiency, and simplified operations. Static frontend content is hosted on Amazon S3 and delivered globally through Amazon CloudFront, with AWS WAF and ACM providing TLS security and protection against common web threats.
 
-![IoT Weather Station Architecture](/images/2-Proposal/kientruc.jpeg)
-
-![IoT Weather Platform Architecture](/images/2-Proposal/platform_architecture.jpeg)
+Users interact with the platform via a React-based web application to upload images, add travel notes, tag locations, and view interactive maps. All backend interactions are processed through Amazon API Gateway, which routes authenticated requests (via Amazon Cognito) to AWS Lambda functions. Uploaded images are stored in Amazon S3, where upload events trigger Amazon SQS to orchestrate asynchronous processing. Lambda workers consume these messages, analyze images through Amazon Rekognition, and store results in Amazon DynamoDB.
 
 ### AWS Services Used
-- **AWS IoT Core**: Ingests MQTT data from 5 stations, scalable to 15.
-- **AWS Lambda**: Processes data and triggers Glue jobs (two functions).
-- **Amazon API Gateway**: Facilitates web app communication.
-- **Amazon S3**: Stores raw data in a data lake and processed outputs (two buckets).
-- **AWS Glue**: Crawlers catalog data, and ETL jobs transform and load it.
-- **AWS Amplify**: Hosts the Next.js web interface.
-- **Amazon Cognito**: Secures access for lab users.
+- **Amazon S3**: Stores uploaded images and hosts static frontend content
+- **Amazon CloudFront**: Global content delivery with low latency
+- **AWS WAF & ACM**: Web application firewall and TLS certificate management
+- **Amazon Cognito**: User authentication with optional MFA
+- **Amazon API Gateway**: RESTful API endpoint management
+- **AWS Lambda**: Serverless compute for business logic
+- **Amazon SQS**: Message queue for asynchronous image processing
+- **Amazon DynamoDB**: NoSQL database for metadata and user data
+- **Amazon Rekognition**: AI-powered image scene detection
+- **Amazon Location Service**: Interactive map visualization and geolocation
+- **Amazon CloudWatch**: Monitoring, logging, and alerting
+- **Amazon SNS**: System notifications and alerts
+- **AWS KMS**: Encryption key management
+- **AWS CodePipeline & CodeBuild**: CI/CD automation
 
 ### Component Design
-- **Edge Devices**: Raspberry Pi collects and filters sensor data, sending it to IoT Core.
-- **Data Ingestion**: AWS IoT Core receives MQTT messages from the edge devices.
-- **Data Storage**: Raw data is stored in an S3 data lake; processed data is stored in another S3 bucket.
-- **Data Processing**: AWS Glue Crawlers catalog the data, and ETL jobs transform it for analysis.
-- **Web Interface**: AWS Amplify hosts a Next.js app for real-time dashboards and analytics.
-- **User Management**: Amazon Cognito manages user access, allowing up to 5 active accounts.
+- **Frontend**: React application hosted on S3, delivered via CloudFront
+- **Authentication**: Amazon Cognito manages user registration, login, and MFA
+- **API Layer**: API Gateway routes requests to Lambda functions
+- **Image Storage**: S3 stores uploaded photos with encryption at rest
+- **Asynchronous Processing**: SQS queues trigger Lambda workers for Rekognition analysis
+- **Data Storage**: DynamoDB stores travel metadata, notes, and location tags
+- **Map Visualization**: Amazon Location Service displays travel routes and tagged locations
+- **Monitoring**: CloudWatch tracks performance metrics and triggers SNS alerts
 
 ### 4. Technical Implementation
 **Implementation Phases**
-This project has two parts—setting up weather edge stations and building the weather platform—each following 4 phases:
-- Build Theory and Draw Architecture: Research Raspberry Pi setup with ESP32 sensors and design the AWS serverless architecture (1 month pre-internship)
-- Calculate Price and Check Practicality: Use AWS Pricing Calculator to estimate costs and adjust if needed (Month 1).
-- Fix Architecture for Cost or Solution Fit: Tweak the design (e.g., optimize Lambda with Next.js) to stay cost-effective and usable (Month 2).
-- Develop, Test, and Deploy: Code the Raspberry Pi setup, AWS services with CDK/SDK, and Next.js app, then test and release to production (Months 2-3).
+The project follows an Agile Scrum framework over 8 two-week sprints (12 weeks total):
+
+- **Assessment (Week 1-4)**: Team onboarding, AWS service training (S3, Lambda, API Gateway, DynamoDB, Cognito, SQS, CloudFront, Rekognition, CloudWatch), Git/GitHub workflow, and requirements discovery
+- **Architecture Design & Planning (Week 5)**: Use case analysis, architecture design iterations following AWS Well-Architected Framework, MVP scope definition, and sprint planning
+- **Base Infrastructure Setup (Week 6)**: Configure IAM, MFA, CloudTrail, AWS Config, create core services (S3, DynamoDB, API Gateway, Cognito, SQS), set up CloudFront + ACM + WAF, build CI/CD pipeline, and write Infrastructure as Code using CloudFormation
+- **Backend Development (Week 7-8)**: Develop Lambda + API Gateway for image upload and trip management, implement S3 → SQS → Lambda processing pipeline, integrate Rekognition, optimize performance and costs
+- **Frontend Development (Week 8-9)**: Build React UI for image upload, timeline, and trip pages, integrate Cognito authentication, implement interactive maps using Amazon Location Service, deploy to S3 + CloudFront
+- **Testing & Go-live (Week 10-11)**: Functional and integration testing, configure CloudWatch monitoring and alarms, conduct load testing, bug fixing and MVP stabilization
+- **Handover (Week 12)**: Prepare documentation, knowledge transfer sessions, final demo and project handover
 
 **Technical Requirements**
-- Weather Edge Station: Sensors (temperature, humidity, rainfall, wind speed), a microcontroller (ESP32), and a Raspberry Pi as the edge device. Raspberry Pi runs Raspbian, handles Docker for filtering, and sends 1 MB/day per station via MQTT over Wi-Fi.
-- Weather Platform: Practical knowledge of AWS Amplify (hosting Next.js), Lambda (minimal use due to Next.js), AWS Glue (ETL), S3 (two buckets), IoT Core (gateway and rules), and Cognito (5 users). Use AWS CDK/SDK to code interactions (e.g., IoT Core rules to S3). Next.js reduces Lambda workload for the fullstack web app.
+- **Frontend**: React, MapLibre/Leaflet for maps, AWS Location Maps SDK
+- **Backend**: Node.js Lambda functions, API Gateway REST APIs
+- **Infrastructure**: AWS CDK or CloudFormation for IaC
+- **CI/CD**: GitHub as source repository, CodePipeline and CodeBuild for automation
+- **Security**: IAM least-privilege policies, KMS encryption, Cognito with MFA, WAF rules
+- **Monitoring**: CloudWatch Logs, Metrics, Alarms, X-Ray for distributed tracing
 
 ### 5. Timeline & Milestones
-**Project Timeline**
-- Pre-Internship (Month 0): 1 month for planning and old station review.
-- Internship (Months 1-3): 3 months.
-    - Month 1: Study AWS and upgrade hardware.
-    - Month 2: Design and adjust architecture.
-    - Month 3: Implement, test, and launch.
-- Post-Launch: Up to 1 year for research.
+**Project Timeline (12 Weeks)**
+
+| Phase | Timeline | Key Milestones |
+|-------|----------|----------------|
+| Assessment | Week 1-4 | Team readiness report, AWS knowledge summary, requirements document |
+| Architecture Design | Week 5 | Final architecture diagram, solution design document, sprint plan |
+| Base Infrastructure | Week 6 | AWS environment ready, CI/CD pipeline operational, IaC templates complete |
+| Backend Development | Week 7-8 | Backend API v1, Rekognition pipeline operational, DynamoDB structured |
+| Frontend Development | Week 8-9 | React frontend v1, map and upload features functional, CloudFront deployment |
+| Testing & Go-live | Week 10-11 | Test report, MVP stable, monitoring and alerting configured |
+| Handover | Week 12 | Complete documentation, knowledge transfer sessions, final demo |
 
 ### 6. Budget Estimation
-You can find the budget estimation on the [AWS Pricing Calculator](https://calculator.aws/#/estimate?id=621f38b12a1ef026842ba2ddfe46ff936ed4ab01).  
-Or you can download the [Budget Estimation File](../attachments/budget_estimation.pdf).
+**Infrastructure Costs (Estimated Monthly)**
 
-### Infrastructure Costs
-- AWS Services:
-    - AWS Lambda: $0.00/month (1,000 requests, 512 MB storage).
-    - S3 Standard: $0.15/month (6 GB, 2,100 requests, 1 GB scanned).
-    - Data Transfer: $0.02/month (1 GB inbound, 1 GB outbound).
-    - AWS Amplify: $0.35/month (256 MB, 500 ms requests).
-    - Amazon API Gateway: $0.01/month (2,000 requests).
-    - AWS Glue ETL Jobs: $0.02/month (2 DPUs).
-    - AWS Glue Crawlers: $0.07/month (1 crawler).
-    - MQTT (IoT Core): $0.08/month (5 devices, 45,000 messages).
+Based on moderate usage assumptions:
+- 5,000-10,000 image uploads per month
+- Average image size: 2-4 MB
+- Single AWS Region deployment
+- CloudFront: 50-100 GB/month outbound traffic
+- DynamoDB: On-Demand capacity mode
+- CloudWatch Logs: 30-day retention
 
-Total: $0.7/month, $8.40/12 months
+**Estimated Monthly Cost: Under USD 70**
 
-- Hardware: $265 one-time (Raspberry Pi 5 and sensors).
+Key cost drivers:
+- **Amazon S3**: Storage and requests for images and static content
+- **Amazon Rekognition**: Per-image analysis charges
+- **Amazon CloudFront**: Global content delivery
+- **AWS Lambda**: Compute time for processing
+- **Amazon DynamoDB**: On-demand read/write capacity
+- **Amazon Location Service**: Map rendering and geocoding
+- **Other Services**: API Gateway, SQS, CloudWatch, SNS (minimal costs)
+
+**Development Costs**
+
+| Resource | Rate (USD/hour) | Total Hours | Total Cost |
+|----------|----------------|-------------|------------|
+| Solutions Architect (1) | $20 | 44 | $880 |
+| Engineers - FE/BE/DevOps (4) | $12 | 228 | $2,736 |
+| QA Engineer | $8 | 16 | $128 |
+| **Total** | | **288** | **$3,744** |
 
 ### 7. Risk Assessment
-#### Risk Matrix
-- Network Outages: Medium impact, medium probability.
-- Sensor Failures: High impact, low probability.
-- Cost Overruns: Medium impact, low probability.
+#### Key Risks and Mitigation
 
-#### Mitigation Strategies
-- Network: Local storage on Raspberry Pi with Docker.
-- Sensors: Regular checks and spares.
-- Cost: AWS budget alerts and optimization.
+**Cost Overruns**
+- **Risk**: Rekognition costs may exceed projections if image uploads spike
+- **Mitigation**: Implement AWS Budget alerts, optimize image sizes before processing, set CloudWatch alarms for cost thresholds
+- **Impact**: Medium | **Probability**: Low
+
+**Security Vulnerabilities**
+- **Risk**: Misconfigured IAM policies or exposed S3 buckets
+- **Mitigation**: Apply least-privilege IAM policies, enable AWS Config for compliance monitoring, regular security audits
+- **Impact**: High | **Probability**: Low
+
+**Performance Issues**
+- **Risk**: Slow image uploads or map rendering due to network latency
+- **Mitigation**: Use CloudFront for global delivery, optimize image compression, implement progressive loading
+- **Impact**: Medium | **Probability**: Medium
+
+**Rekognition Accuracy**
+- **Risk**: Inaccurate scene detection results affecting user experience
+- **Mitigation**: Set confidence thresholds, allow manual corrections, provide user feedback mechanisms
+- **Impact**: Low | **Probability**: Medium
 
 #### Contingency Plans
-- Revert to manual methods if AWS fails.
-- Use CloudFormation for cost-related rollbacks.
+- CloudFormation templates enable quick rollback of infrastructure changes
+- Dead Letter Queue (DLQ) preserves failed messages for investigation
+- CloudWatch alarms trigger SNS notifications for immediate incident response
 
 ### 8. Expected Outcomes
-#### Technical Improvements: 
-Real-time data and analytics replace manual processes.  
-Scalable to 10-15 stations.
+
+#### Project Success Criteria
+- **Uptime**: 99% platform availability through serverless architecture
+- **Security**: Secure authentication via Cognito with optional MFA, encryption at rest and in transit
+- **Cost**: Monthly infrastructure costs under USD 70
+- **Automation**: 100% CI/CD automation for build, test, and deployment
+- **Monitoring**: CloudWatch alerts within 1 minute of errors or threshold breaches
+- **Accuracy**: 95%+ accuracy in displaying user-tagged locations on maps
+
+#### Technical Improvements
+- Hands-on experience with production-grade AWS serverless architecture
+- Understanding of AWS Well-Architected Framework principles
+- Practical knowledge of CI/CD automation and DevOps practices
+- Experience with modern frontend (React) and backend (Lambda) development
+
 #### Long-term Value
-1-year data foundation for AI research.  
-Reusable for future projects.
+- Reusable architecture pattern for similar serverless applications
+- Comprehensive documentation and operational runbooks
+- Foundation for future enhancements (mobile apps, social features, AI recommendations)
+- Portfolio project demonstrating cloud-native development skills
